@@ -164,8 +164,8 @@ $(document).ready(function () {
         }
 
         for(i=0;i<hashtags.length;i++) {
-            if(emojis[i]!=0)
-                appendHashtag(hashtags[i],i);
+            if(emojis[i].length()>0)
+                appendHashtag(hashtags[i].replace(" ",""),i);
         }
 
         appendBottomButtons();
