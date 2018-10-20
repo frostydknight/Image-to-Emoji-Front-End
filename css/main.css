@@ -27,6 +27,10 @@ body, html {
   border-color: #333a56 !important;
   border-width: 8px !important;
 }
+.border-width-6 {
+  border-color: #333a56 !important;
+  border-width: 6px !important;
+}
 #drag-text {
   text-align: center;
   vertical-align: middle;
