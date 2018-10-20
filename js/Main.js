@@ -78,7 +78,7 @@ $(document).ready(function () {
         fileReader.onload = function (fileLoadedEvent) {
             var srcData = fileLoadedEvent.target.result; // <--- data: base64
             uploadEncodedImage(srcData);
-            changePage(srcData);
+            //changePage(srcData);
         }
 
         fileReader.readAsDataURL(fileToLoad);
@@ -86,19 +86,27 @@ $(document).ready(function () {
 
     //uploads the encoded image
     function uploadEncodedImage(s) {
-        var url = "localhost:5000/";
+        var url = "https://image-to-emoji.herokuapp.com/";
         var http = new XMLHttpRequest();
         http.open("POST", url);
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        //http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         http.onreadystatechange = function () {
+            if (http.readyState === 2) {
+                document.getElementById("drag-text").innerHTML = "Sending...";
+            }
             if (http.readyState === 3 && http.status === 200) {
                 document.getElementById("drag-text").innerHTML = "Loading...";
             }
             if (http.readyState === 4 && http.status === 200) {
+                document.getElementById("drag-text").innerHTML = "Complete!";
                 console.log(http.responseText);
             }
         };
-        http.send(s);
+        var send = {"image": s};
+        var json = JSON.stringify(send);
+        http.send(json);
     }
 
     //updates the page after image upload
