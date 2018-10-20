@@ -1,5 +1,20 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  background-image: url('../Img/Background.png') !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+#drag-text {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 250px;
+}
 .border-width-8 {
-  border-color: black !important;
+  border-color: #ffa31a !important;
   border-width: 8px !important;
 }
 .box {
@@ -9,5 +24,5 @@
    max-width: 75%;
    min-height: 250px;
    max-width: 75%;
-   background-color: red;
+   background-color: rgba(147, 131, 108, 0.5);
 }
