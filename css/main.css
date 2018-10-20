@@ -19,6 +19,10 @@ body, html {
   margin-top: 32px;
   background-color: rgba(147, 131, 108, 0.5);
 }
+.btn-primary {
+  background-color: #5c5c3d !important;
+  border-color: #5c5c3d !important;
+}
 .border-width-8 {
   border-color: #5c5c3d !important;
   border-width: 8px !important;
