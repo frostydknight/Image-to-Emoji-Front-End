@@ -159,15 +159,13 @@ $(document).ready(function () {
         var hashtags = response.hashtags;
 
         for(i=0;i<emojis.length;i++) {
-            if(emojis[i]!=0)
-                appendEmoji(emojis[i],i);
+            appendEmoji(emojis[i],i);
         }
 
         for(i=0;i<hashtags.length;i++) {
-            if(emojis[i].length()>0)
+            if(hashtags[i].length>0)
                 appendHashtag(hashtags[i].replace(" ",""),i);
         }
-
         appendBottomButtons();
     }
 });
