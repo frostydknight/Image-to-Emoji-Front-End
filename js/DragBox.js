@@ -32,7 +32,7 @@ function handleFileSelect(evt) {
 function encodeImageFileAsURL(f) {
 
   var filesSelected = f;
-  var fileToLoad = filesSelected[0];
+  var fileToLoad = f;
   var fileReader = new FileReader();
   fileReader.onload = function(fileLoadedEvent) {
     var srcData = fileLoadedEvent.target.result; // <--- data: base64
