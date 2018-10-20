@@ -71,9 +71,8 @@ $(document).ready(function() {
     var imgSRC = src;
     $("#drop_zone").remove();
     $("#form-home").remove();
-    $("#Home").append("<div class='drop border border-width-8 col-sm-6' id='image-container'></div>");
-    $("#Home").append("<div class='drop border border-width-8 col-sm-6' id='emoji-container'></div>");
-    $("#image-container").append("<img class='mx-auto d-block img-restrict' src='" + imgSRC + "'>");
+    $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
+    $("#Home").append("<div class='drop border border-width-8 col-xs-3 col-sm-3' id='emoji-container'></div>");
   }
 
 });
