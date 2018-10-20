@@ -156,7 +156,7 @@ $(document).ready(function () {
     function populateTable(json) {
         var response = JSON.parse(json);
         var emojis = response.emojis;
-        //var hashtags = response.hashtags;
+        var hashtags = response.hashtags;
 
         for(i=0;i<emojis.length;i++) {
             if(emojis[i].length()>0)
