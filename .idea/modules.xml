@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/image-to-emoji.iml" filepath="$PROJECT_DIR$/.idea/image-to-emoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Image-to-Emoji-Front-End.iml" filepath="$PROJECT_DIR$/.idea/Image-to-Emoji-Front-End.iml" />
     </modules>
   </component>
 </project>
