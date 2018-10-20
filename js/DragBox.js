@@ -1,4 +1,3 @@
-// Setup the dnd listeners.
 $(document).ready(function() {
   var dropZone = document.getElementById('drop_zone');
   dropZone.addEventListener('dragover', handleDragOver, false);
@@ -32,10 +31,26 @@ $(document).ready(function() {
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent) {
       var srcData = fileLoadedEvent.target.result; // <--- data: base64
-      //uploadEncodedImage(srcData);
+      uploadEncodedImage(srcData);
     }
     fileReader.readAsDataURL(fileToLoad);
     changePage();
+  }
+
+  function uploadEncodedImage(s) {
+      var url = "localhost:5000/";
+      var http = new XMLHttpRequest();
+      http.open("POST", url);
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      http.onreadystatechange = function () {
+          if(http.readyState === 3 && http.status === 200) {
+              document.getElementById("drag-text").innerHTML = "Loading...";
+          }
+          if(http.readyState === 4 && http.status === 200) {
+              console.log(http.responseText);
+          }
+      };
+      http.send(s);
   }
 
   function handleDragOver(evt) {
