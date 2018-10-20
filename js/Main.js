@@ -1,3 +1,18 @@
+var copyRunning = false;
+var allEmojis = "";
+var allHashtags = "";
+
+function copy(s) {
+    if (copyRunning)
+        return;
+    copyRunning = true;
+    $("#emoji-container").append("<textarea id = 'copy-text'>" + s + "</textarea>");
+    $("#copy-text").select();
+    document.execCommand("copy");
+    $("#copy-text").remove();
+    copyRunning = false;
+}
+
 $(document).ready(function () {
     var dropZone = document.getElementById('drop_zone');
     dropZone.addEventListener('dragover', handleDragOver, false);
@@ -6,9 +21,6 @@ $(document).ready(function () {
     //creates global variables
     var pageReady;
     var base64;
-    var copyRunning = false;
-    var allEmojis = "";
-    var allHashtags = "";
     // clears URL-Text on page refresh
     $("#URL-Text").val('');
     //Listens for button click
@@ -95,39 +107,31 @@ $(document).ready(function () {
         $("#drop_zone").remove();
         $("#form-home").remove();
         $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
-        $("#Home").append("<div class='drop border border-width-8 col-xs-3 col-sm-3 container' id='emoji-container'><div class=\"row\">\n" +
-            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">\n" +
-            "            <table>\n" +
-            "                <tbody id=\"emoji-table\">\n" +
-            "                </tbody>\n" +
-            "            </table>\n" +
-            "        </div>\n" +
-            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">\n" +
-            "            <table>\n" +
-            "                <tbody id=\"hashtag-table\">\n" +
-            "                </tbody>\n" +
-            "            </table>\n" +
-            "        </div>\n" +
-            "        <div class=\"col-sm-2 d-flex align-items-center justify-content-center\">\n" +
-            "            <button id=\"copyAll\" class=\"btn btn-dark\" onclick=\"copy(allEmojis+' '+allHashtags)\">Copy All</button>\n" +
-            "        </div>\n" +
-            "    </div></div>");
+        $("#Home").append("<div class='drop border border-width-8 col-xs-3 col-sm-3 container' id='emoji-container'></div>");
+        $("#emoji-container").append("<div class=\"row\">" +
+            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">" +
+            "            <table>" +
+            "                <tbody id=\"emoji-table\">" +
+            "                </tbody>" +
+            "            </table>" +
+            "        </div>" +
+            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">" +
+            "            <table>" +
+            "                <tbody id=\"hashtag-table\">" +
+            "                </tbody>" +
+            "            </table>" +
+            "        </div>" +
+            "        <div class=\"col-sm-2 d-flex align-items-center justify-content-center\">" +
+            "            <button id=\"copyAll\" class=\"btn btn-dark\" onclick=\"copy(allEmojis+allHashtags)\">Copy All</button>" +
+            "        </div>" +
+            "    </div>");
         $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-info margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
         populateTable(null);
     }
 
 
 
-    function copy(s) {
-        if (copyRunning)
-            return;
-        copyRunning = true;
-        $("#emoji-container").append("<textarea id = 'copy-text'>" + s + "</textarea>");
-        $("#copy-text").select();
-        document.execCommand("copy");
-        //$("#copy-text").remove();
-        copyRunning = false;
-    }
+
 
     function appendEmoji(em, id) {
         allEmojis += em + " ";
