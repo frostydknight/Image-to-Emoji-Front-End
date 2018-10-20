@@ -31,14 +31,11 @@ function handleFileSelect(evt) {
 }
 
 function encodeImageFileAsURL(f) {
-
     var filesSelected = f;
-    var fileToLoad = filesSelected[0];
+    var fileToLoad = f;
     var fileReader = new FileReader();
     fileReader.onload = function (fileLoadedEvent) {
         var srcData = fileLoadedEvent.target.result; // <--- data: base64
-        console.log(srcData);
-        console.log("Converted Base64 version is " + srcData);
         uploadEncodedImage(srcData);
     };
     fileReader.readAsDataURL(fileToLoad);
