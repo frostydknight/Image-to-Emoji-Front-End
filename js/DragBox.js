@@ -19,7 +19,7 @@ function handleFileSelect(evt) {
     }
     else {
         document.getElementById("drop_zone").innerHTML = "<h3 id='drag-text'>Drag and drop image here!</h3>";
-        document.getElementById("drag-text").innerHTML = "Nope, not an image at all!";
+        document.getElementById("drag-text").innerHTML = "Sorry, that's not an image. Please try again.";
       }
     // files is a FileList of File objects. List some properties.
 
