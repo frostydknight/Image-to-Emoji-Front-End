@@ -32,8 +32,8 @@ body, html {
   border-width: 8px !important;
 }
 .emoji-btn-color {
-  background-color: #52658f;
-  border-color: #52658f;
+  background-color: #52658f !important;
+  border-color: #52658f !important;
   color: white;
 }
 #drag-text {
