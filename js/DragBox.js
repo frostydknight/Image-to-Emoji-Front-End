@@ -5,6 +5,24 @@ $(document).ready(function() {
   dropZone.addEventListener('dragleave',handleDragLeave,false);
 
   var pageReady;
+  var base64;
+
+  $("#submit-btn").click(function(){
+    var urlText = $("#URL-Text").val();
+    base64 = urlText;
+  })
+
+  function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+  }
+
+
 
   function handleFileSelect(evt) {
       evt.stopPropagation();
@@ -26,13 +44,13 @@ $(document).ready(function() {
   }
   function encodeImageFileAsURL(f) {
 
-    var filesSelected = f;
     var fileToLoad = f;
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent) {
       var srcData = fileLoadedEvent.target.result; // <--- data: base64
-      uploadEncodedImage(srcData);
-      changePage(srcData);
+      console.log(srcData);
+      //uploadEncodedImage(srcData);
+      //changePage(srcData);
     }
     fileReader.readAsDataURL(fileToLoad);
   }
