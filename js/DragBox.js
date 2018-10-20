@@ -32,17 +32,14 @@ function handleFileSelect(evt) {
 function encodeImageFileAsURL(f) {
 
   var filesSelected = f;
-  if (filesSelected.length > 0) {
-    var fileToLoad = filesSelected[0];
-
-    var fileReader = new FileReader();
-
-    fileReader.onload = function(fileLoadedEvent) {
-      var srcData = fileLoadedEvent.target.result; // <--- data: base64
-      console.log("Converted Base64 version is " + srcData);
-    }
-    fileReader.readAsDataURL(fileToLoad);
+  var fileToLoad = filesSelected[0];
+  var fileReader = new FileReader();
+  fileReader.onload = function(fileLoadedEvent) {
+    var srcData = fileLoadedEvent.target.result; // <--- data: base64
+    console.log(srcData);
+    console.log("Converted Base64 version is " + srcData);
   }
+  fileReader.readAsDataURL(fileToLoad);
 }
 
 function handleDragOver(evt) {
