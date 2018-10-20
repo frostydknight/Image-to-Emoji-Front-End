@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var pageReady;
   var base64;
-
+  $("#URL-Text").val('');
   $("#submit-btn").click(function(){
     var urlText = $("#URL-Text").val();
     base64 = urlText;
