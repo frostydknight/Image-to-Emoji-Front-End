@@ -18,7 +18,6 @@ body, html {
   height: auto;
   border-radius: 25px;
   margin-top: 32px;
-  background-color: rgba(147, 131, 108, 0.5);
 }
 .btn-primary {
   background-color: #F78733 !important;
