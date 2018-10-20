@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
-  background-color: #4ABDAC;
-  color: #DFDCE3
+  background-color: #f7f5e6;
+  color: #black
 }
 .box {
    border-radius: 25px;
@@ -10,7 +10,7 @@ body, html {
    max-width: 75%;
    min-height: 250px;
    max-width: 75%;
-   background-color: #FC4A1A;
+   background-color: #e8e8e8;
 }
 .title {
   text-align: center;
@@ -20,11 +20,11 @@ body, html {
   margin-top: 32px;
 }
 .btn-primary {
-  background-color: #F78733 !important;
-  border-color: #F78733 !important;
+  background-color: #333a56 !important;
+  border-color: #333a56 !important;
 }
 .border-width-8 {
-  border-color: #F78733 !important;
+  border-color: #333a56 !important;
   border-width: 8px !important;
 }
 #drag-text {
@@ -36,7 +36,7 @@ body, html {
   margin: 16px 16px 16px 16px;
 }
 .img-thumbnail {
-  border-color: #F78733 !important;
+  border-color: #333a56 !important;
 }
 .drop {
   margin: 32px 16px 0px 16px;
