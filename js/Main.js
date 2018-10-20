@@ -127,7 +127,7 @@ $(document).ready(function () {
             "            <button id=\"copyAll\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(allEmojis+allHashtags)\">Copy All</button>" +
             "        </div>" +
             "    </div>");
-        $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-info margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
+        $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-primary margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
         populateTable(json);
     }
     function appendEmoji(em, id) {
