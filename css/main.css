@@ -26,3 +26,6 @@ body, html {
    max-width: 75%;
    background-color: rgba(147, 131, 108, 0.5);
 }
+.col-sm-3 {
+margin: 16px 16px 16px 16px;
+}
