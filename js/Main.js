@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         if (f.type.match("image/*")) {
             document.getElementById("drop_zone").innerHTML = "<h3 id='drag-text'>Drag and drop image here!</h3>";
-            document.getElementById("drag-text").innerHTML = "That's an image alright.";
+            document.getElementById("drag-text").innerHTML = "Loading...";
             encodeImageFileAsURL(f);
         }
         else {
@@ -159,12 +159,14 @@ $(document).ready(function () {
         //var hashtags = response.hashtags;
 
         for(i=0;i<emojis.length;i++) {
-            appendEmoji(emojis[i],i);
+            if(emojis[i].length()>0)
+                appendEmoji(emojis[i],i);
         }
 
-        /*for(i=0;i<hashtags.length;i++) {
-            appendHashtag(hashtags[i],i);
-        }*/
+        for(i=0;i<hashtags.length;i++) {
+            if(emojis[i].length()>0)
+                appendHashtag(hashtags[i],i);
+        }
 
         appendBottomButtons();
     }
