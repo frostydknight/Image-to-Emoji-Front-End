@@ -86,5 +86,8 @@ $(document).ready(function() {
     $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-info margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
   }
 
+  if (base64 != "") {
+    uploadEncodedImage(base64);
+  }
 
 });
