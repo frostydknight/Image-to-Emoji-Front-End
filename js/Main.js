@@ -163,7 +163,7 @@ $(document).ready(function () {
         }
 
         for(i=0;i<hashtags.length;i++) {
-            if(hashtags[i].length()>0)
+            if(hashtags[i].length>0)
                 appendHashtag(hashtags[i].replace(" ",""),i);
         }
         appendBottomButtons();
