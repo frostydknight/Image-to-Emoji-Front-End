@@ -44,6 +44,9 @@ body, html {
 .emoji-margin {
   margin: 8px 8px 8px 8px;
 }
+.emoji-btn-color {
+  background-color: #526584 !important;
+}
 #copyAll{
   margin-left: 24px !important;
 }

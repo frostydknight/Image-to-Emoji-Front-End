@@ -132,7 +132,7 @@ $(document).ready(function () {
     }
     function appendEmoji(em, id) {
         allEmojis += em + " ";
-        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-primary emoji-btn-color emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", em);
         str = str.replace("%s", em);
@@ -140,7 +140,7 @@ $(document).ready(function () {
     }
     function appendHashtag(hs, id) {
         allHashtags += hs + " ";
-        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-primary emoji-btn-color emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", hs);
         str = str.replace("%s", hs);
