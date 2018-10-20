@@ -114,9 +114,9 @@ $(document).ready(function () {
         $("#drop_zone").remove();
         $("#form-home").remove();
         $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
-        $("#Home").append("<div class='drop col-xs-3 col-sm-3 container' id='emoji-container'></div>");
+        $("#Home").append("<div class='drop col-xs-3 col-sm-4 container' id='emoji-container'></div>");
         $("#emoji-container").append("<div class=\"row\">" +
-            "        <div class=\"col-5 d-flex align-items-center justify-content-center\">" +
+            "        <div class=\"col-4 d-flex align-items-center justify-content-center\">" +
             "            <table>" +
             "                <tbody id=\"emoji-table\">" +
             "                </tbody>" +
@@ -128,8 +128,8 @@ $(document).ready(function () {
             "                </tbody>" +
             "            </table>" +
             "        </div>" +
-            "        <div class=\"col-2 d-flex align-items-bottom justify-content-center\">" +
-            "            <button id=\"copyAll\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(allEmojis+allHashtags)\">Copy All</button>" +
+            "        <div class=\"col-3 d-flex justify-content-center\">" +
+            "            <button id=\"copyAll\" class=\"btn btn-primary emoji-margin\"  onclick=\"copy(allEmojis+allHashtags)\">Copy All</button>" +
             "        </div>" +
             "    </div>");
         $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-primary margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
@@ -137,7 +137,7 @@ $(document).ready(function () {
     }
     function appendEmoji(em, id) {
         allEmojis += em + " ";
-        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-primary emoji-btn-color emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-primary emoji-btn-color flex-fill emoji-margin\" style="width: 100%" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", em);
         str = str.replace("%s", em);
@@ -145,7 +145,7 @@ $(document).ready(function () {
     }
     function appendHashtag(hs, id) {
         allHashtags += hs + " ";
-        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-primary emoji-btn-color emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-primary emoji-btn-color flex-fill emoji-margin\" style="width: 100%" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", hs);
         str = str.replace("%s", hs);
