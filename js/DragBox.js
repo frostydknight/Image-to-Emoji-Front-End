@@ -32,9 +32,9 @@ $(document).ready(function() {
     fileReader.onload = function(fileLoadedEvent) {
       var srcData = fileLoadedEvent.target.result; // <--- data: base64
       uploadEncodedImage(srcData);
+      changePage(srcData);
     }
     fileReader.readAsDataURL(fileToLoad);
-    changePage();
   }
 
   function uploadEncodedImage(s) {
@@ -67,11 +67,13 @@ $(document).ready(function() {
       evt.dataTransfer.dropEffect = '';
   }
 
-  function changePage() {
+  function changePage(src) {
+    var imgSRC = src;
     $("#drop_zone").remove();
-    $("#form-group").remove();
-    $("#Home").append("<div class='border border-width-8 col-sm-3' id='image-container'></div>");
-    $("#Home").append("<div class='border border-width-8 col-sm-3' id='emoji-container'></div>");
+    $("#form-home").remove();
+    $("#Home").append("<div class='drop border border-width-8 col-sm-6' id='image-container'></div>");
+    $("#Home").append("<div class='drop border border-width-8 col-sm-6' id='emoji-container'></div>");
+    $("#image-container").append("<img class='mx-auto d-block img-restrict' src='" + imgSRC + "'>");
   }
 
 });
