@@ -74,7 +74,6 @@ $(document).ready(function () {
         fileReader.onload = function (fileLoadedEvent) {
             var srcData = fileLoadedEvent.target.result; // <--- data: base64
             uploadEncodedImage(srcData);
-            //changePage(srcData);
         }
 
         fileReader.readAsDataURL(fileToLoad);
@@ -97,6 +96,7 @@ $(document).ready(function () {
             if (http.readyState === 4 && http.status === 200) {
                 document.getElementById("drag-text").innerHTML = "Complete!";
                 console.log(http.responseText);
+                changePage(s, http.responseText);
             }
         };
         var send = {"image": s};
@@ -104,7 +104,7 @@ $(document).ready(function () {
         http.send(json);
     }
     //updates the page after image upload
-    function changePage(src) {
+    function changePage(src, json) {
         var imgSRC = src;
         $("#drop_zone").remove();
         $("#form-home").remove();
@@ -128,7 +128,7 @@ $(document).ready(function () {
             "        </div>" +
             "    </div>");
         $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-info margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
-        populateTable(null);
+        populateTable(json);
     }
     function appendEmoji(em, id) {
         allEmojis += em + " ";
