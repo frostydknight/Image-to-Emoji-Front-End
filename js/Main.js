@@ -29,7 +29,7 @@ $(document).ready(function () {
         base64 = urlText;
         //checks for a url upload and uploads the image
         if (base64 != "") {
-            uploadEncodedImage(base64);
+            uploadEncodedImage(base64,true);
         }
     })
     //Handles dnd functionality, calls image encoding
@@ -44,7 +44,7 @@ $(document).ready(function () {
         if (f.type.match("image/*")) {
             document.getElementById("drop_zone").innerHTML = "<h3 id='drag-text'>Drag and drop image here!</h3>";
             document.getElementById("drag-text").innerHTML = "Loading...";
-            encodeImageFileAsURL(f);
+            encodeImageFileAsURL(f,false);
         }
         else {
             document.getElementById("drop_zone").innerHTML = "<h3 id='drag-text'>Drag and drop image here!</h3>";
@@ -79,7 +79,7 @@ $(document).ready(function () {
         fileReader.readAsDataURL(fileToLoad);
     }
     //uploads the encoded image
-    function uploadEncodedImage(s) {
+    function uploadEncodedImage(s, isURL) {
         var url = "https://image-to-emoji.herokuapp.com/";
         var http = new XMLHttpRequest();
         http.open("POST", url);
@@ -99,10 +99,15 @@ $(document).ready(function () {
                 changePage(s, http.responseText);
             }
         };
-        var send = {"image": s};
+        var send;
+        if(isURL)
+            send = {"url": s};
+        else
+            send = {"image": s};
         var json = JSON.stringify(send);
         http.send(json);
     }
+
     //updates the page after image upload
     function changePage(src, json) {
         var imgSRC = src;
@@ -111,19 +116,19 @@ $(document).ready(function () {
         $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
         $("#Home").append("<div class='drop col-xs-3 col-sm-3 container' id='emoji-container'></div>");
         $("#emoji-container").append("<div class=\"row\">" +
-            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">" +
+            "        <div class=\"col-5 d-flex align-items-center justify-content-center\">" +
             "            <table>" +
             "                <tbody id=\"emoji-table\">" +
             "                </tbody>" +
             "            </table>" +
             "        </div>" +
-            "        <div class=\"col-sm-5 d-flex align-items-center justify-content-center\">" +
+            "        <div class=\"col-5 d-flex align-items-center justify-content-center\">" +
             "            <table>" +
             "                <tbody id=\"hashtag-table\">" +
             "                </tbody>" +
             "            </table>" +
             "        </div>" +
-            "        <div class=\"col-sm-2 d-flex align-items-center justify-content-center\">" +
+            "        <div class=\"col-2 d-flex align-items-bottom justify-content-center\">" +
             "            <button id=\"copyAll\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(allEmojis+allHashtags)\">Copy All</button>" +
             "        </div>" +
             "    </div>");
@@ -132,7 +137,7 @@ $(document).ready(function () {
     }
     function appendEmoji(em, id) {
         allEmojis += em + " ";
-        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-outline-primary emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"em%d\" class=\"btn btn-outline-primary btn-block emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", em);
         str = str.replace("%s", em);
@@ -140,16 +145,16 @@ $(document).ready(function () {
     }
     function appendHashtag(hs, id) {
         allHashtags += hs + " ";
-        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-outline-primary emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
+        var str = '<tr><td><button id=\"hs%d\" class=\"btn btn-outline-primary btn-block emoji-margin\" onclick=\"copy(\'%s\')\">%s</button></td></tr>';
         str = str.replace("%d", id);
         str = str.replace("%s", hs);
         str = str.replace("%s", hs);
         $("#hashtag-table").append(str);
     }
     function appendBottomButtons() {
-        var allEms = '<tr><td><button id=\"emB\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(allEmojis)\">Copy Emojis</button></td></tr>';
+        var allEms = '<tr><td><button id=\"emB\" class=\"btn btn-primary btn-block emoji-margin\" onclick=\"copy(allEmojis)\">Copy Emojis</button></td></tr>';
         $("#emoji-table").append(allEms);
-        var allHss = '<tr><td><button id=\"hsB\" class=\"btn btn-primary emoji-margin\" onclick=\"copy(allHashtags)\">Copy Hashtags</button></td></tr>';
+        var allHss = '<tr><td><button id=\"hsB\" class=\"btn btn-primary btn-block emoji-margin\" onclick=\"copy(allHashtags)\">Copy Hashtags</button></td></tr>';
         $("#hashtag-table").append(allHss);
     }
     //populates the table with emojis and hashtags
