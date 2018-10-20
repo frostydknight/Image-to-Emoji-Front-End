@@ -1,6 +1,7 @@
 body, html {
   height: 100%;
-  background-color: rgb(211,211,211);
+  background-color: #4ABDAC;
+  color: #DFDCE3
 }
 .box {
    border-radius: 25px;
@@ -9,7 +10,7 @@ body, html {
    max-width: 75%;
    min-height: 250px;
    max-width: 75%;
-   background-color: rgba(147, 131, 108, 0.5);
+   background-color: #FC4A1A;
 }
 .title {
   text-align: center;
@@ -20,11 +21,11 @@ body, html {
   background-color: rgba(147, 131, 108, 0.5);
 }
 .btn-primary {
-  background-color: #5c5c3d !important;
-  border-color: #5c5c3d !important;
+  background-color: #F78733 !important;
+  border-color: #F78733 !important;
 }
 .border-width-8 {
-  border-color: #5c5c3d !important;
+  border-color: #F78733 !important;
   border-width: 8px !important;
 }
 #drag-text {
@@ -36,7 +37,7 @@ body, html {
   margin: 16px 16px 16px 16px;
 }
 .img-thumbnail {
-  border-color: #5c5c3d !important;
+  border-color: #F78733 !important;
 }
 .drop {
   margin: 32px 16px 0px 16px;
