@@ -113,7 +113,7 @@ $(document).ready(function () {
         var imgSRC = src;
         $("#drop_zone").remove();
         $("#form-home").remove();
-        $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
+        $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-6' id='image-home' src='" + imgSRC + "'>");
         $("#Home").append("<div class='drop col-xs-3 col-sm-4 container' id='emoji-container'></div>");
         $("#emoji-container").append("<div class=\"row\">" +
             "        <div class=\"col-4 d-flex align-items-center justify-content-center\">" +

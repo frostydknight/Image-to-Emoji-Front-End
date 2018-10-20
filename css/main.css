@@ -44,6 +44,11 @@ body, html {
   margin: 16px 16px 16px 16px;
 }
 .img-thumbnail {
+  display: block;
+  max-width:450px;
+  max-height:450px;
+  width: auto;
+  height: auto;
   border-color: #333a56 !important;
 }
 .drop {
