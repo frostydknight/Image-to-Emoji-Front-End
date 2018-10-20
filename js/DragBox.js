@@ -6,23 +6,15 @@ $(document).ready(function() {
 
   var pageReady;
   var base64;
+
+  // clears URL-Text on page refresh
   $("#URL-Text").val('');
+
+  //Listens for button click
   $("#submit-btn").click(function(){
     var urlText = $("#URL-Text").val();
     base64 = urlText;
   })
-
-  function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-  }
-
-
 
   function handleFileSelect(evt) {
       evt.stopPropagation();
@@ -42,15 +34,15 @@ $(document).ready(function() {
           document.getElementById("drag-text").innerHTML = "Sorry, that's not an image. Please try again.";
         }
   }
+
   function encodeImageFileAsURL(f) {
 
     var fileToLoad = f;
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent) {
       var srcData = fileLoadedEvent.target.result; // <--- data: base64
-      console.log(srcData);
-      //uploadEncodedImage(srcData);
-      //changePage(srcData);
+      uploadEncodedImage(srcData);
+      changePage(srcData);
     }
     fileReader.readAsDataURL(fileToLoad);
   }
@@ -91,6 +83,8 @@ $(document).ready(function() {
     $("#form-home").remove();
     $("#Home").append("<img class='drop img-thumbnail col-xs-3 col-sm-3' id='image-home' src='" + imgSRC + "'>");
     $("#Home").append("<div class='drop border border-width-8 col-xs-3 col-sm-3' id='emoji-container'></div>");
+    $("#Home").after("<div class='row align-items-center justify-content-center'><button type='submit' id='reset-page' class='btn btn-info margins col-sm-2' onclick='document.location.reload(true)'>Refresh</button></div>");
   }
+
 
 });
