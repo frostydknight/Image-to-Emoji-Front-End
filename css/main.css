@@ -1,0 +1,9 @@
+
+.box {
+   margin-top: 32px;
+   min-width: 250px;
+   max-width: 75%;
+   min-height: 250px;
+   max-width: 75%;
+   background-color: red;
+}
