@@ -90,7 +90,7 @@ $(document).ready(function () {
             if (http.readyState === 2) {
                 document.getElementById("drag-text").innerHTML = "Sending...";
             }
-            if (http.readyState === 3 && http.status === 200) {
+            if (http.readyState === 3) {
                 document.getElementById("drag-text").innerHTML = "Loading...";
             }
             if (http.readyState === 4 && http.status === 200) {
@@ -154,10 +154,18 @@ $(document).ready(function () {
     }
     //populates the table with emojis and hashtags
     function populateTable(json) {
-        appendEmoji("😃", 0);
-        appendEmoji("🌳", 1);
-        appendHashtag("#wowee", 0);
-        appendHashtag("#gotem", 1);
+        var response = JSON.parse(json);
+        var emojis = response.emojis;
+        //var hashtags = response.hashtags;
+
+        for(i=0;i<emojis.length;i++) {
+            appendEmoji(emojis[i],i);
+        }
+
+        /*for(i=0;i<hashtags.length;i++) {
+            appendHashtag(hashtags[i],i);
+        }*/
+
         appendBottomButtons();
     }
 });
