@@ -40,6 +40,14 @@ body, html {
   vertical-align: middle;
   line-height: 250px;
 }
+.page-color{
+  background-color: #333a56 !important;
+  color: white !important;
+}
+.custom-file-label::after {
+  background-color: #333a56 !important;
+  color: white !important;
+}
 .margins {
   margin: 16px 16px 16px 16px;
 }
