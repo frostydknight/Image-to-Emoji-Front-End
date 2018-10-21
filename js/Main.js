@@ -132,8 +132,8 @@ $(document).ready(function () {
         $("#drop_zone").remove();
         $("#form-home").remove();
         $("#file-explorer").remove();
-        $("#Home").append("<img class='drop img col-xs-12 col-sm-6' id='image-home' src='" + imgSRC + "'>");
-        $("#Home").append("<div class='drop col-xs-12 col-sm-4 container' id='emoji-container'></div>");
+        $("#Home").append("<img class='drop img col-sm-6' id='image-home' src='" + imgSRC + "'>");
+        $("#Home").append("<div class='drop col-sm-4 container' id='emoji-container'></div>");
         $("#emoji-container").append("<div class=\"row\">" +
             "        <div class=\"col-4 d-flex align-items-center justify-content-center\">" +
             "            <table>" +
