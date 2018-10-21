@@ -43,12 +43,15 @@ body, html {
 .margins {
   margin: 16px 16px 16px 16px;
 }
-.img-thumbnail {
+.img {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
   display: block;
   max-width:450px;
   max-height:450px;
   width: auto;
   height: auto;
+  border: 2px solid #333a56 !important;
   border-color: #333a56 !important;
 }
 .drop {
