@@ -32,6 +32,17 @@ $(document).ready(function () {
             uploadEncodedImage(base64,true);
         }
     })
+    $('#inputGroupFile01').change(function(e) {
+      var files = e.target.files;
+      var file = files[0];
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        console.log('RESULT', reader.result)
+        uploadEncodedImage(reader.result);
+      }
+      reader.readAsDataURL(file);
+
+    });
     //Handles dnd functionality, calls image encoding
     function handleFileSelect(evt) {
         evt.stopPropagation();
@@ -65,6 +76,7 @@ $(document).ready(function () {
         evt.preventDefault();
         evt.dataTransfer.dropEffect = '';
     }
+
     //Encodes the image in base 64, calls image upload and the page change
     function encodeImageFileAsURL(f) {
 
@@ -78,7 +90,14 @@ $(document).ready(function () {
 
         fileReader.readAsDataURL(fileToLoad);
     }
-    //uploads the encoded image
+    function encodeImageFileAsURL2(element) {
+      var file = element.files[0];
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        uploadEncodedImage(reader.result);
+      }
+      reader.readAsDataURL(file);
+    }
     function uploadEncodedImage(s, isURL) {
         var url = "https://image-to-emoji.herokuapp.com/";
         var http = new XMLHttpRequest();
@@ -107,12 +126,12 @@ $(document).ready(function () {
         var json = JSON.stringify(send);
         http.send(json);
     }
-
     //updates the page after image upload
     function changePage(src, json) {
         var imgSRC = src;
         $("#drop_zone").remove();
         $("#form-home").remove();
+        $("#file-explorer").remove();
         $("#Home").append("<img class='drop img col-xs-3 col-sm-6' id='image-home' src='" + imgSRC + "'>");
         $("#Home").append("<div class='drop col-xs-3 col-sm-4 container' id='emoji-container'></div>");
         $("#emoji-container").append("<div class=\"row\">" +
